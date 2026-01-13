@@ -3,7 +3,7 @@ import QuestionBox from "./QuestionBox";
 import AnswerCard from "./AnswerCard";
 import { questionsLaw, answersLaw, questionsTheory, answersTheory } from "../data/gameData";
 
-const BaseQuest = ({ gameTitle, questions, answers }) => {
+const BaseQuest = ({ gameTitle, questions, answers, onAnswer }) => {
   const [selectedAnswerId, setSelectedAnswerId] = useState(null);
   const [wrongAnswer, setWrongAnswer] = useState(new Set());
   const [placedAnswers, setPlacedAnswers] = useState(() => {
@@ -26,9 +26,9 @@ const BaseQuest = ({ gameTitle, questions, answers }) => {
         newSet.add(selectedAnswerId);
         return { ...prev, [qIndex]: newSet };
       });
+      onAnswer(true);
     } else {
       setWrongAnswer((prev) => new Set(prev).add(selectedAnswerId));
-
       setTimeout(() => {
         setWrongAnswer((prev) => {
           const newSet = new Set(prev);
@@ -36,6 +36,7 @@ const BaseQuest = ({ gameTitle, questions, answers }) => {
           return newSet;
         });
       }, 300);
+      onAnswer(false);
     }
     //
     setSelectedAnswerId(null);
@@ -77,12 +78,12 @@ const BaseQuest = ({ gameTitle, questions, answers }) => {
   );
 }
 
-export default function Game() {
+export default function Game({ onAnswer }) {
   return (
     <>
-      <BaseQuest gameTitle="Нормативные акты и кодексы" questions={questionsLaw} answers={answersLaw}/>
+      <BaseQuest gameTitle="Нормативные акты и кодексы" questions={questionsLaw} answers={answersLaw} onAnswer={onAnswer}/>
       <hr className="game-separator"/>
-      <BaseQuest gameTitle="Теория трудового права" questions={questionsTheory} answers={answersTheory}/>
+      <BaseQuest gameTitle="Теория трудового права" questions={questionsTheory} answers={answersTheory} onAnswer={onAnswer}/>
     </>
   )
 };
