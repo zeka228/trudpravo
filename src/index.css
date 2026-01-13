@@ -10,9 +10,67 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.game {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.answers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.question-box {
+  flex: 1;
+  min-width: 45%;
+  min-height: 120px;
+  padding: 12px;
+  border: 2px solid #333;
+  background-color: #fff;
+}
+.question-box.complete {
+  border-color: #28a745; /* green outline */
+  box-shadow: 0 0 5px #28a745;
+}
+.question-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.question-answers {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.answer-card {
+  padding: 10px 14px;
+  border: 2px solid #555;
+  background-color: #fff;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.answer-card:hover {
+  background-color: #eee;
+}
+.answer-card.selected {
+  border-color: #0066ff;
+}
+.answer-card.correct {
+  background-color: #d4edda;
+  border-color: #28a745;
+  cursor: default;
+}
+.answer-card.wrong {
+  background-color: #f8d7da;
+  border-color: #dc3545;
 }
