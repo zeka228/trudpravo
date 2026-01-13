@@ -1,13 +1,5 @@
-function App() {
-  return (
-    <div>
-      <header>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
-  );
-}
+import Game from "./components/Game";
 
-export default App;
+export default function App() {
+  return <Game />;
+}
