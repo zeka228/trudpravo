@@ -1,0 +1,4 @@
+# js normalize
+client/*.js text eol=lf
+client/*.jsx text eol=lf
+
