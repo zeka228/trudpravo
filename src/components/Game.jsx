@@ -1,13 +1,16 @@
 import { useState } from "react";
 import QuestionBox from "./QuestionBox";
 import AnswerCard from "./AnswerCard";
-import { questions_law, answers_law } from "../data/gameData";
+import { questionsLaw, answersLaw, questionsTheory, answersTheory } from "../data/gameData";
 
-export default function Game() {
+const BaseQuest = ({ gameTitle, questions, answers }) => {
+  if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+    console.log(questions, answers)
+  }
   const [selectedAnswerId, setSelectedAnswerId] = useState(null);
   const [placedAnswers, setPlacedAnswers] = useState(() => {
     const obj = {};
-    questions_law.forEach((_, i) => (obj[i] = new Set()));
+    questions.forEach((_, i) => (obj[i] = new Set()));
     return obj;
   });
 
@@ -18,7 +21,7 @@ export default function Game() {
   const handleQuestionClick = (qIndex) => {
     if (selectedAnswerId === null) return;
     //
-    const question = questions_law[qIndex];
+    const question = questions[qIndex];
     if (question.va.includes(selectedAnswerId)) {
       setPlacedAnswers((prev) => {
         const newSet = new Set(prev[qIndex]);
@@ -34,23 +37,23 @@ export default function Game() {
 
   return (
     <div className="game">
+      <div className="game-title"> {gameTitle} </div>
       <div className="questions">
-        {questions_law.map((q, qIndex) => {
+        {questions.map((q, qIndex) => {
           const placedSet = placedAnswers[qIndex];
           return (
             <QuestionBox
               key={qIndex}
               question={{text: q.q}}
-              answers={answers_law.filter(a => placedSet.has(a.id))}
+              answers={answers.filter(a => placedSet.has(a.id))}
               onClick={() => handleQuestionClick(qIndex)}
               isComplete={q.va.every(id => placedSet.has(id))}
             />
           );
         })}
       </div>
-
       <div className="answers">
-        {answers_law.map((a) => (
+        {answers.map((a) => (
           <AnswerCard
             key={a.id}
             answer={{...a}}
@@ -62,3 +65,13 @@ export default function Game() {
     </div>
   );
 }
+
+export default function Game() {
+  return (
+    <>
+      <BaseQuest gameTitle="Нормативные акты и кодексы" questions={questionsLaw} answers={answersLaw}/>
+      <hr className="game-separator"/>
+      <BaseQuest gameTitle="Теория трудового права" questions={questionsTheory} answers={answersTheory}/>
+    </>
+  )
+};
