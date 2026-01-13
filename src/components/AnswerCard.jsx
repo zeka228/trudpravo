@@ -1,10 +1,8 @@
-export default function AnswerCard({ answer, isSelected, onClick }) {
+export default function AnswerCard({ answer, isSelected, isWrong, onClick }) {
   let className = "answer-card";
   if (answer.status === "correct") className += " correct";
-  else if (answer.status === "wrong") className += " wrong";
   else if (isSelected) className += " selected";
-
-  if (answer.status === "correct") className += " disabled";
+  else if (isWrong) className += " wrong";
 
   return (
     <div className={className} onClick={onClick}>
