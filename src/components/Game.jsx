@@ -4,10 +4,8 @@ import AnswerCard from "./AnswerCard";
 import { questionsLaw, answersLaw, questionsTheory, answersTheory } from "../data/gameData";
 
 const BaseQuest = ({ gameTitle, questions, answers }) => {
-  if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-    console.log(questions, answers)
-  }
   const [selectedAnswerId, setSelectedAnswerId] = useState(null);
+  const [wrongAnswer, setWrongAnswer] = useState(new Set());
   const [placedAnswers, setPlacedAnswers] = useState(() => {
     const obj = {};
     questions.forEach((_, i) => (obj[i] = new Set()));
@@ -29,12 +27,24 @@ const BaseQuest = ({ gameTitle, questions, answers }) => {
         return { ...prev, [qIndex]: newSet };
       });
     } else {
-      // Flash red
+      setWrongAnswer((prev) => new Set(prev).add(selectedAnswerId));
+
+      setTimeout(() => {
+        setWrongAnswer((prev) => {
+          const newSet = new Set(prev);
+          newSet.delete(selectedAnswerId);
+          return newSet;
+        });
+      }, 300);
     }
     //
     setSelectedAnswerId(null);
   };
-
+  //
+  if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+    console.log(questions, answers)
+  }
+  //
   return (
     <div className="game">
       <div className="game-title"> {gameTitle} </div>
@@ -58,6 +68,7 @@ const BaseQuest = ({ gameTitle, questions, answers }) => {
             key={a.id}
             answer={{...a}}
             isSelected={a.id === selectedAnswerId}
+            isWrong={wrongAnswer.has(a.id)}
             onClick={() => handleAnswerClick(a.id)}
           />
         ))}
