@@ -48,7 +48,7 @@ const BaseQuest = ({ gameTitle, questions, answers }) => {
   return (
     <div className="game">
       <div className="game-title"> {gameTitle} </div>
-      <div className="questions">
+      <div className={"questions" + (selectedAnswerId == null ? "" : " active")}>
         {questions.map((q, qIndex) => {
           const placedSet = placedAnswers[qIndex];
           return (
