@@ -82,6 +82,17 @@ body {
 }
 .lives span {
 }
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: red;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+.overlay.show {
+  opacity: 0.2;
+}
 
 .question-box {
   flex: 1;
