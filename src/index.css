@@ -16,17 +16,39 @@ body {
   z-index: -1;
   min-height: 100%;
   height: auto;
-  width: 75px;
+  width: 350px;
+  display: flex;
   -webkit-background-size: 50px 50px;
   -moz-background-size: 50px 50px;
   background-size: 50px 50px;
-  background-image: linear-gradient(-45deg, #0000000a 25%, transparent 25%, transparent 50%, #0000000a 50%, #0000000a 75%, transparent 75%, transparent);
+  background-image: linear-gradient(-45deg, #0000000f 25%, transparent 25%, transparent 50%, #0000000f 50%, #0000000f 75%, transparent 75%, transparent);
 }
 .bg-elems.l {
   left: 0;
 }
 .bg-elems.r {
   right: 0;
+}
+.bg-elems img {
+  top: auto;
+  min-width: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  opacity: 0.3;
+  z-index: -2;
+  filter: blur(2px);
+}
+@media (max-width: 700px) {
+  .bg-elems {
+    width: 100vh;
+  }
+  .bg-elems.l {
+    left: -180px;
+  }
+  .bg-elems.r {
+    display: none;
+  }
 }
 
 .game {
@@ -66,6 +88,7 @@ body {
   flex-wrap: wrap;
   max-width: min-content;
   position: fixed;
+  z-index: 0;
   bottom: 30px;
   padding: 10px;
   left: 2%;
@@ -82,6 +105,12 @@ body {
 }
 .lives span {
 }
+@media (min-width: 1250px) {
+  .lives {
+    left: 105px;
+  }
+}
+
 .overlay {
   position: fixed;
   inset: 0;
