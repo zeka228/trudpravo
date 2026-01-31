@@ -1,3 +1,5 @@
+import shuffleQ from "./shuffleQ";
+
 export const answersLaw = [
   {id: 1, t: "Трудовые и связанные с ними отношения"},
   {id: 2, t: "Сочетание императивного и диспозитивного методов"},
@@ -10,7 +12,7 @@ export const answersLaw = [
   {id: 9, t: "Работодатель"},
   {id: 10, t: "Выговор"}
 ]
-export const questionsLaw = [
+const questionsLawRaw = [
   { q: "Что является предметом трудового права?", va: [1] },
   { q: "Какой метод применяется в трудовом праве?", va: [2] },
   { q: "Какая отрасль права регулирует трудовые отношения?", va: [3] },
@@ -22,6 +24,7 @@ export const questionsLaw = [
   { q: "Кто устанавливает правила внутреннего трудового распорядка?", va: [9] },
   { q: "Чем регулируются трудовые отношения в РФ?", va: [3,6] }
 ];
+export const questionsLaw = shuffleQ(questionsLawRaw);
 
 export const answersTheory = [
   { id: 1, t: "Трудовой договор" },
@@ -35,7 +38,7 @@ export const answersTheory = [
   { id: 9, t: "Да, по соглашению сторон" },
   { id: 10, t: "Свобода труда" }
 ];
-export const questionsTheory = [
+const questionsTheoryRaw = [
   { q: "Что является основанием возникновения трудовых отношений?", va: [1] },
   { q: "В какой форме заключается трудовой договор?", va: [2] },
   { q: "Что подтверждает приём работника на работу?", va: [1,3] },
@@ -47,3 +50,4 @@ export const questionsTheory = [
   { q: "Что относится к принципам трудового права?", va: [8,10] },
   { q: "Что является основой правового регулирования труда?", va: [1] }
 ];
+export const questionsTheory = shuffleQ(questionsTheoryRaw);
