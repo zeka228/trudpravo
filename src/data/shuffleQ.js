@@ -1,4 +1,4 @@
-export default shuffleObject = (objRaw) => {
+const shuffleObject = (objRaw) => {
   let shuffledObj = {};
   var keys = Object.keys(objRaw);
     keys.sort(function(a,b) {
@@ -9,3 +9,4 @@ export default shuffleObject = (objRaw) => {
     });
   return shuffledObj;
 }
+export default shuffleObject;
