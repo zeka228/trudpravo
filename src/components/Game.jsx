@@ -81,7 +81,7 @@ const BaseQuest = ({ gameTitle, questions, answers, onAnswer }) => {
 export default function Game({ onAnswer }) {
   return (
     <>
-      <BaseQuest gameTitle="Нормативные акты и кодексы" questions={questionsLaw} answers={answersLaw} onAnswer={onAnswer}/>
+      <BaseQuest gameTitle="Общие положения трудового права" questions={questionsLaw} answers={answersLaw} onAnswer={onAnswer}/>
       <hr className="game-separator"/>
       <BaseQuest gameTitle="Трудовой договор, оплата труда и ответственность" questions={questionsTheory} answers={answersTheory} onAnswer={onAnswer}/>
     </>
