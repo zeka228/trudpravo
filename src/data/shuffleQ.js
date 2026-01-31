@@ -1,12 +1,9 @@
-const shuffleObject = (objRaw) => {
-  let shuffledObj = {};
-  var keys = Object.keys(objRaw);
-    keys.sort(function(a,b) {
-        return Math.random()- 0.5;
-    });
-    keys.forEach(function(k) {
-        shuffledObj[k] = objRaw[k];
-    });
-  return shuffledObj;
+const shuffleArray = (qRaw) => {
+    const qRand = qRaw.slice();
+    for (let i = qRand.length - 1; i > 0; i--) {
+        const rand = Math.floor(Math.random() * (i + 1));
+        [qRand[i], qRand[rand]] = [qRand[rand], qRand[i]];
+    }
+    return qRand;
 }
-export default shuffleObject;
+export default shuffleArray;
