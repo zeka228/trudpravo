@@ -83,7 +83,7 @@ export default function Game({ onAnswer }) {
     <>
       <BaseQuest gameTitle="Нормативные акты и кодексы" questions={questionsLaw} answers={answersLaw} onAnswer={onAnswer}/>
       <hr className="game-separator"/>
-      <BaseQuest gameTitle="Теория трудового права" questions={questionsTheory} answers={answersTheory} onAnswer={onAnswer}/>
+      <BaseQuest gameTitle="Трудовой договор, оплата труда и ответственность" questions={questionsTheory} answers={answersTheory} onAnswer={onAnswer}/>
     </>
   )
 };
