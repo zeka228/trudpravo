@@ -2,26 +2,26 @@ body {
   background-color: #ffffff;
   padding: 20px;
 }
-
+/* */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: system-ui, sans-serif;
 }
-
+/* */
 .bg-elems {
   position: fixed;
   top: 0;
   z-index: -1;
   min-height: 100%;
   height: auto;
-  width: 350px;
+  width: 400px;
   display: flex;
   -webkit-background-size: 50px 50px;
   -moz-background-size: 50px 50px;
   background-size: 50px 50px;
-  background-image: linear-gradient(-45deg, #0000000f 25%, transparent 25%, transparent 50%, #0000000f 50%, #0000000f 75%, transparent 75%, transparent);
+  background-image: linear-gradient(-45deg, #c7c7c769 25%, transparent 25%, transparent 50%, #c7c7c769 50%, #c7c7c769 75%, transparent 75%, transparent);
 }
 .bg-elems.l {
   left: 0;
@@ -35,11 +35,10 @@ body {
   object-fit: cover;
   object-position: center;
   position: relative;
-  opacity: 0.3;
   z-index: -2;
-  filter: blur(2px);
+  filter: opacity(0.65) sepia(0.6) blur(2.5px);
 }
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .bg-elems {
     width: 100vh;
   }
@@ -50,14 +49,14 @@ body {
     display: none;
   }
 }
-
+/* */
 .game {
   max-width: 900px;
   margin: 0 auto 30px;
 }
 .game-title {
   font-weight: bold;
-  font-size: larger;
+  font-size: xx-large;
   text-align: center;
   padding-bottom: 20px;
 }
@@ -110,7 +109,7 @@ body {
     left: 105px;
   }
 }
-
+/* */
 .overlay {
   position: fixed;
   inset: 0;
@@ -122,7 +121,7 @@ body {
 .overlay.show {
   opacity: 0.2;
 }
-
+/* */
 .question-box {
   flex: 1;
   min-width: 45%;
@@ -146,7 +145,7 @@ body {
   gap: 6px;
   white-space: nowrap;
 }
-
+/* */
 .answer-card {
   padding: 10px 14px;
   border: 2px solid #555;
