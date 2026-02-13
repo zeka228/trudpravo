@@ -73,10 +73,18 @@ body {
     width: 100vh;
   }
   .bg-elems.l {
-    left: -180px;
+    left: -135px;
   }
   .bg-elems.r {
     display: none;
+  }
+  .game-title {
+    margin-bottom: 20px;
+    padding-top: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 2px solid #33333333;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);;
   }
 }
 /* */
@@ -86,7 +94,7 @@ body {
 }
 .game-title {
   font-weight: bold;
-  font-size: xx-large;
+  font-size: 48px;
   text-align: center;
   padding-bottom: 20px;
 }
@@ -136,7 +144,7 @@ body {
 }
 @media (min-width: 1250px) {
   .lives {
-    left: 105px;
+    left: 140px;
   }
 }
 /* */
