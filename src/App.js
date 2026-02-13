@@ -2,10 +2,8 @@ import { useState } from "react";
 
 import Game from "./components/Game";
 import LifeIndicator from "./components/LifeIndicator";
-
-import BGImage1 from "./bons/bg_1.jpg";
-import BGImage2 from "./bons/bg_2.jpg";
 import QRCodes from "./components/QRCodes";
+import BGImages from "./components/BGImages";
 
 export default function App() {
   const [lives, setLives] = useState(3);
@@ -34,12 +32,7 @@ export default function App() {
       <LifeIndicator lives={lives} />
       <QRCodes />
       <Game onAnswer={handleAnswer}/>
-      <div className="bg-elems l">
-        <img alt="bg_1.jpg" src={BGImage1}></img>
-      </div>
-      <div className="bg-elems r">
-        <img alt="bg_2.jpg" src={BGImage2}></img>
-      </div>
+      <BGImages />
     </>
   );
 }
