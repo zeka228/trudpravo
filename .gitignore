@@ -7,3 +7,6 @@
 # exclude temp
 *.swp
 *.swo
+
+# exclude worklog
+worklog.md
