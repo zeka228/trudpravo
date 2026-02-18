@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 import Game from "./components/Game";
-import LifeIndicator from "./components/LifeIndicator";
-import QRCodes from "./components/QRCodes";
 import BGImages from "./components/BGImages";
 
 export default function App() {
@@ -29,8 +27,6 @@ export default function App() {
   return (
     <>
       <Overlay />
-      <LifeIndicator lives={lives} />
-      <QRCodes />
       <Game onAnswer={handleAnswer}/>
       <BGImages />
     </>
