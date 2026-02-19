@@ -84,7 +84,7 @@ body {
   }
 }
 /* */
-.start-screen {
+.screen-wrapper {
   display: flex;
   flex-direction: column;
   height: 90vh;
