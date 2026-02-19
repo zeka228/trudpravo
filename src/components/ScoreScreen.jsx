@@ -1,6 +1,6 @@
 import QRCodes from "./QRCodes";
 
-export default function ScoreScreen({}) {
+export default function ScoreScreen() {
     return (
       <div className="screen-wrapper">
         <hr className="game-separator"/>
