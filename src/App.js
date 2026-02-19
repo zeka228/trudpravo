@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Timer from "./components/RemainingTime";
 import TitleScreen from "./components/TitleScreen";
+import ScoreScreen from "./components/ScoreScreen";
 import BaseQuest from "./components/Game";
 
 import BGImages from "./components/BGImages";
@@ -23,7 +24,7 @@ export default function App() {
       case 2: return <BaseQuest gameTitle="Дисциплина труда" questions={questionsDiscipline} answers={answersDiscipline} />
       case 3: return <BaseQuest gameTitle="Трудовой договор и приём на работу" questions={questionsWork} answers={answersWork} />
       case 4: return <BaseQuest gameTitle="Оплата труда и материальная ответственность" questions={questionsSalary} answers={answersSalary} />
-      case 5: return <></> /* return ScoreScreen */
+      case 5: return <ScoreScreen />
       default: return <></>
     }
   }

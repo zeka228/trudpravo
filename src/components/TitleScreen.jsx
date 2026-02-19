@@ -2,7 +2,7 @@ import QRCodes from "./QRCodes";
 
 export default function TitleScreen({ onClick }) {
     return (
-      <div className="start-screen">
+      <div className="screen-wrapper">
         <hr className="game-separator"/>
           <div className="game-title">Квест:<br></br>Трудовое право</div>
           <div className="start-button-wrapper">
