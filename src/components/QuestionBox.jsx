@@ -1,13 +1,13 @@
-export default function QuestionBox({ question, answers, onClick, isComplete }) {
+export default function QuestionBox({ question, answers, onClick }) {
   let className = "question-box";
-  if (isComplete) className += " complete";
+  if (answers.length) className += " placed";
 
   return (
     <div className={className} onClick={onClick}>
       <div className="question-title">{question.text}</div>
       <div className="question-answers">
         {answers.map(a => (
-          <div key={a.id} className="answer-card correct">
+          <div key={a.id} className="answer-card">
             {a.t}
           </div>
         ))}
