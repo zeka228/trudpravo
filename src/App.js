@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import Timer from "./components/RemainingTime";
 import TitleScreen from "./components/TitleScreen";
 import BGImages from "./components/BGImages";
 
@@ -15,6 +16,7 @@ export default function App() {
 
   return (
     <>
+      <Timer timeLeft={1} />
       <CurrentStepComponent />
       <BGImages />
     </>
