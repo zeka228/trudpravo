@@ -4,7 +4,7 @@ import AnswerCard from "./AnswerCard";
 
 import ContinueStep from "./ContinueStep";
 
-const BaseQuest = ({ gameTitle, questions, answers, nextStep }) => {
+const BaseQuest = ({ gameTitle, questions, answers, nextStep, vas }) => {
   const [selectedAnswerId, setSelectedAnswerId] = useState(null);
   const [completedStep, setCompletedStep] = useState(false);
   const [placedAnswers, setPlacedAnswers] = useState(() => {
@@ -29,6 +29,16 @@ const BaseQuest = ({ gameTitle, questions, answers, nextStep }) => {
       return { ...prev, [qIndex]: newSet };
     });
     setSelectedAnswerId(null);
+  };
+  
+  const nextStepProcess = () => {
+    let validAnswers = 0;
+    for (const [k,v] of Object.entries(placedAnswers)) {
+      const tSet = new Set(questions[k].va);
+      if (tSet.size === v.size && [...tSet].every(i => v.has(i))) validAnswers++;
+    }
+    vas((prev) => prev + validAnswers);
+    nextStep();
   };
   //
   if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
@@ -61,7 +71,7 @@ const BaseQuest = ({ gameTitle, questions, answers, nextStep }) => {
           />
         ))}
       </div>
-    <ContinueStep isCompleted={completedStep} onClick={nextStep} />
+      <ContinueStep isCompleted={completedStep} onClick={nextStepProcess} />
     </div>
   );
 }
