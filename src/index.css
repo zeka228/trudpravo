@@ -177,9 +177,9 @@ body {
   background-color: #fff;
   border-radius: 6px;
 }
-.question-box.complete {
-  border-color: #28a745; /* green outline */
-  box-shadow: 0 0 5px #28a745;
+.question-box.placed {
+  border-color: #a5a728;
+  box-shadow: 0 0 5px #a5a728;
 }
 .question-title {
   font-weight: 100;
@@ -206,13 +206,4 @@ body {
 }
 .answer-card.selected {
   border-color: #0066ff;
-}
-.answer-card.correct {
-  background-color: #d4edda;
-  border-color: #28a745;
-  cursor: default;
-}
-.answer-card.wrong {
-  background-color: #f8d7da;
-  border-color: #dc3545;
 }
