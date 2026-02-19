@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-import Timer from "./components/RemainingTime";
 import TitleScreen from "./components/TitleScreen";
 import ScoreScreen from "./components/ScoreScreen";
 import BaseQuest from "./components/Game";
@@ -31,7 +30,6 @@ export default function App() {
 
   return (
     <>
-      <Timer timeLeft={600} />
       <CurrentStepComponent />
       <BGImages />
     </>
