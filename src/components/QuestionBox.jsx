@@ -7,7 +7,7 @@ export default function QuestionBox({ question, answers, onClick }) {
       <div className="question-title">{question.text}</div>
       <div className="question-answers">
         {answers.map(a => (
-          <div key={a.id} className="answer-card">
+          <div key={a.id} className="answer-card placed">
             {a.t}
           </div>
         ))}

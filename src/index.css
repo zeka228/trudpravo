@@ -204,6 +204,33 @@ body {
 .answer-card:hover {
   background-color: #eee;
 }
+.answer-card.placed:hover {
+  cursor: default;
+  background-color: #fff;
+}
 .answer-card.selected {
   border-color: #0066ff;
+}
+.continue-button {
+  margin-left: auto;
+  margin-top: 40px;
+  max-width: fit-content;
+  padding: 30px 30px;
+  font-size: 18px;
+  font-style: italic;
+  text-align: center;
+  align-content: center;
+  border: 2px solid #000;
+  background-color: rgba(0, 0, 0, 0.05);
+  background-image: linear-gradient(-45deg, #c7c7c769 25%, transparent 25%, transparent 50%, #c7c7c769 50%, #c7c7c769 75%, transparent 75%, transparent);
+  border-radius: 12px;
+}
+.continue-button.ready {
+  cursor: pointer;
+  background-color: white;
+  background-image: none;
+}
+.continue-button.ready:hover {
+  cursor: pointer;
+  background-color: rgba(200, 200, 200, 0.90);
 }
