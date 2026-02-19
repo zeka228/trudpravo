@@ -22,11 +22,12 @@ const BaseQuest = ({ gameTitle, questions, answers, nextStep }) => {
     setPlacedAnswers((prev) => {
       const newSet = new Set(prev[qIndex]);
       newSet.add(selectedAnswerId);
+      const tempState = { ...prev, [qIndex]: newSet };
+      if (Object.values(tempState).every(s => s.size > 0)) {
+        setCompletedStep(true);
+      }
       return { ...prev, [qIndex]: newSet };
     });
-    if (Object.values(placedAnswers).every(s => s.size > 0)) {
-      setCompletedStep(true);
-    }
     setSelectedAnswerId(null);
   };
   //
