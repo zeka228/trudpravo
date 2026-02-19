@@ -2,27 +2,33 @@ import { useState } from "react";
 import QuestionBox from "./QuestionBox";
 import AnswerCard from "./AnswerCard";
 
-const BaseQuest = ({ gameTitle, questions, answers }) => {
+import ContinueStep from "./ContinueStep";
+
+const BaseQuest = ({ gameTitle, questions, answers, nextStep }) => {
   const [selectedAnswerId, setSelectedAnswerId] = useState(null);
+  const [completedStep, setCompletedStep] = useState(false);
   const [placedAnswers, setPlacedAnswers] = useState(() => {
     const obj = {};
     questions.forEach((_, i) => (obj[i] = new Set()));
     return obj;
   });
-
   const handleAnswerClick = (answerId) => {
     setSelectedAnswerId(answerId);
   };
 
   const handleQuestionClick = (qIndex) => {
     if (selectedAnswerId === null) return;
-      setPlacedAnswers((prev) => {
-        const newSet = new Set(prev[qIndex]);
-        newSet.add(selectedAnswerId);
-        return { ...prev, [qIndex]: newSet };
-      });
+
+    setPlacedAnswers((prev) => {
+      const newSet = new Set(prev[qIndex]);
+      newSet.add(selectedAnswerId);
+      return { ...prev, [qIndex]: newSet };
+    });
+    if (Object.values(placedAnswers).every(s => s.size > 0)) {
+      setCompletedStep(true);
+    }
     setSelectedAnswerId(null);
-    };
+  };
   //
   if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     console.log(questions, answers)
@@ -54,6 +60,7 @@ const BaseQuest = ({ gameTitle, questions, answers }) => {
           />
         ))}
       </div>
+    <ContinueStep isCompleted={completedStep} onClick={nextStep} />
     </div>
   );
 }
