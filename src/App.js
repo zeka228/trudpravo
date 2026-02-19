@@ -16,24 +16,6 @@ import {
 
 export default function App() {
   const [currentStep, setStep] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(600);
-
-  useEffect(() => {
-    if (currentStep !== 1) return;
-
-    const interval = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(interval);
-          setStep(5);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [currentStep]);
 
   const CurrentStepComponent = () => {
     switch (currentStep) {
@@ -49,7 +31,7 @@ export default function App() {
 
   return (
     <>
-      <Timer timeLeft={timeLeft} />
+      <Timer timeLeft={600} />
       <CurrentStepComponent />
       <BGImages />
     </>
