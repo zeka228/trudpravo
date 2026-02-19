@@ -1,12 +1,6 @@
 import { useState } from "react";
 import QuestionBox from "./QuestionBox";
 import AnswerCard from "./AnswerCard";
-import { 
-  questionsLaw, answersLaw,
-  questionsDiscipline, answersDiscipline,
-  questionsWork, answersWork,
-  questionsSalary, answersSalary
-} from "../data/gameData";
 
 const BaseQuest = ({ gameTitle, questions, answers, onAnswer }) => {
   const [selectedAnswerId, setSelectedAnswerId] = useState(null);
@@ -83,16 +77,4 @@ const BaseQuest = ({ gameTitle, questions, answers, onAnswer }) => {
   );
 }
 
-export default function Game({ onAnswer }) {
-  return (
-    <>
-      <BaseQuest gameTitle="Трудовое право как отрасль права" questions={questionsLaw} answers={answersLaw} onAnswer={onAnswer}/>
-      <hr className="game-separator"/>
-      <BaseQuest gameTitle="Дисциплина труда" questions={questionsDiscipline} answers={answersDiscipline} onAnswer={onAnswer}/>
-      <hr className="game-separator"/>
-      <BaseQuest gameTitle="Трудовой договор и приём на работу" questions={questionsWork} answers={answersWork} onAnswer={onAnswer}/>
-      <hr className="game-separator"/>
-      <BaseQuest gameTitle="Оплата труда и материальная ответственность" questions={questionsSalary} answers={answersSalary} onAnswer={onAnswer}/>
-    </>
-  )
-};
+export default BaseQuest;
